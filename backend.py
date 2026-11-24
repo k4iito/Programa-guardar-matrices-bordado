@@ -7,6 +7,7 @@ import re
 import string 
 import ctypes
 import shutil
+import sys
 
 class matriz:
     def __init__(self, ruta: str, ruta_imagen=None, nombre=None):
@@ -58,7 +59,10 @@ class CargarImagenes(QThread):
 
     def __init__(self):
         super().__init__()
-        self.carpeta_actual = os.path.dirname(os.path.abspath(__file__))
+        if getattr(sys, 'frozen', False):
+            self.carpeta_actual = os.path.dirname(sys.executable)
+        else:
+            self.carpeta_actual = os.path.dirname(os.path.abspath(__file__))
         self.carpeta_matrices = os.path.join(self.carpeta_actual, "matrices")
         self.ruta_BD = os.path.join(self.carpeta_actual, "matrices.json")
         self.base_datos = {}

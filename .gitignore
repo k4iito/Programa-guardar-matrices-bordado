@@ -1,5 +1,9 @@
-matrices/*
-!matrices/.gitkeep
-imagenes/*
-!imagenes/.gitkeep
-matrices.json
+dist/main/matrices/*
+dist/main/imagenes/*
+!dist/main/matrices/.gitkeep
+!dist/main/imagenes/.gitkeep
+dist/main/matrices.json
+build/
+*.spec
+__pycache__/
+*.pyc
